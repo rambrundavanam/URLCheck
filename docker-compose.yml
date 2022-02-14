@@ -1,0 +1,28 @@
+version: "3.2"
+services:
+  api:
+    container_name: flask-container
+    build: .
+    entrypoint: python app.py
+    env_file:
+      - .env
+    ports:
+      - '5000:5000'
+    environment:
+      - CACHE_DEFAULT_TIMEOUT=30
+  redis:
+    container_name: redis-cont
+    image: "redis:alpine"
+    environment:
+      - REDIS_REPLICATION_MODE=master
+    ports:
+      - "6379:6379"
+    volumes:
+      # save redisearch data to your current working directory
+      - ./redis-data:/data
+    command:
+      # Save if 100 keys are added in every 10 seconds
+      - "--save 10 100"
+
+volumes:
+  redis-data:

@@ -1,0 +1,13 @@
+anyio==3.5.0
+aioflask==0.4.0
+cache==1.0.3
+Deprecated==1.2.13
+Flask==2.0.2
+Flask-Caching==1.10.1
+httpx==0.22.0
+MarkupSafe==2.0.1
+packaging==21.3
+pyparsing==3.0.7
+psycopg2==2.9.3
+redis==4.1.3
+
